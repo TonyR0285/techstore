@@ -1,6 +1,6 @@
 # TechStore 🛒
 
-**Evaluación Final — Construcción de Software (ASUC00947)**  
+**Evaluación Final — Construcción de Software**  
 Universidad Continental | Mg. Waldyr Fredy Cerron Valverde
 
 ---
@@ -99,8 +99,8 @@ docker exec techstore_backend npm run test:coverage
 
 ---
 
-## Integrantes
+## Integrante
 
-- [Nombre del integrante 1] — Backend / Pruebas
-- [Nombre del integrante 2] — Frontend / UI
-- [Nombre del integrante 3] — DevOps / Docker
+- [Ramos Escobar Crist Antony] — Backend / Pruebas
+- [Ramos Escobar Crist Antony] — Frontend / UI
+- [Ramos Escobar Crist Antony] — DevOps / Docker
