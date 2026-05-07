@@ -1,0 +1,49 @@
+services:
+  frontend:
+    build: ./frontend
+    container_name: techstore_frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - techstore_net
+
+  backend:
+    build: ./backend
+    container_name: techstore_backend
+    ports:
+      - "3000:3000"
+    environment:
+      DB_HOST: db
+      DB_USER: root
+      DB_PASSWORD: techstore123
+      DB_NAME: techstore_db
+      DB_PORT: 3306
+      NODE_ENV: production
+    depends_on:
+      - db
+    networks:
+      - techstore_net
+
+  db:
+    image: mysql:8.0
+    container_name: techstore_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: techstore123
+      MYSQL_DATABASE: techstore_db
+    ports:
+      - "3307:3306"
+    volumes:
+      - techstore_data:/var/lib/mysql
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - techstore_net
+
+volumes:
+  techstore_data:
+
+networks:
+  techstore_net:
+    driver: bridge
